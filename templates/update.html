@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<table>
+    {% if request.session.status %}
+<form method="post" action="{% url 'update' %}">
+                {% csrf_token %}
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title">
+					<span class="login100-form-title-1">
+						User Database
+					</span>
+				</div>
+					<div class="wrap-input100 validate-input m-b-26" id="t1" data-validate="Username is required">
+						<span class="label-input300">Name : {{ rm.name }}</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" id="t2" data-validate = "Password is required">
+						<span class="label-input200">Date of Birth : {{ rm.dob }}(yyyy-mm-dd)</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" id="t3" data-validate = "Password is required">
+						<span class="label-input200">Email ID : {{ rm.email }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" id="t4" data-validate = "Password is required">
+						<span class="label-input200">Gender : {{ rm.gender }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" id="t5" data-validate = "Password is required">
+						<span class="label-input200">Mobile No. : {{ rm.mobile }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" id="t6" data-validate = "Password is required">
+						<span class="label-input200">Address : {{ rm.address }}</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-18" id="t7" data-validate = "Password is required">
+						<span class="label-input200">Username : {{ rm.uname }}</span>
+					</div>
+
+
+
+
+                    {{ rm.errors }}
+                    <div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							UPDATE
+						</button>
+                        </form>
+
+					<div class="container-login100-form-btn" style="position: relative; left: 50px; up: 50px; ">
+						<a href="{% url 'logout' %}"> <button class="login100-form-btn" type="submit" name="button1" id="b1">
+							Logout
+						</button></a>
+					</div>
+
+			</div>
+		</div>
+	</div>
+
+
+{% else %}
+    <h3 style="text-align: center;font-family: 'Agency FB';font-size: 25px;color: red">
+            Please Do Login
+        </h3>
+
+{% endif %}
+</table>
+
+</body>
+</html>
